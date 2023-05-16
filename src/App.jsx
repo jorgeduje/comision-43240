@@ -7,7 +7,7 @@ function App() {
   return (
     <button
       onClick={saludar}
-      style={{ backgroundColor: "red", padding: "10px 20px" }}
+      style={{ backgroundColor: "blue", padding: "10px 20px" }}
     >
       saludar
     </button>
