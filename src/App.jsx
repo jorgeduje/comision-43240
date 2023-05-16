@@ -1,17 +1,18 @@
+import Footer from "./Footer.jsx";
+import  Home  from "./Home.jsx";
+import { Navbar } from "./Navbar.jsx";
 
-function App() {
-  const saludar = () => {
-    console.log("Hola como estas? bienvendio");
-  };
+
+const App = () => {
+  // logica
 
   return (
-    <button
-      onClick={saludar}
-      style={{ backgroundColor: "blue", padding: "10px 20px" }}
-    >
-      saludar
-    </button>
+    <>
+      <Navbar />
+      <Home />
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
