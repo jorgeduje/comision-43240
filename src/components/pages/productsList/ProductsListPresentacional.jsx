@@ -1,10 +1,7 @@
-const ProductsListPresentacional = ({ contador, setContador }) => {
+const ProductsListPresentacional = () => {
   return (
     <>
       <h1>Aca van los productos</h1>
-
-      <button onClick={() => setContador(contador + 1)}>Sumar</button>
-      {/* <Counter /> */}
     </>
   );
 };
