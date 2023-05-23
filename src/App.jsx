@@ -1,11 +1,20 @@
+import { useState } from "react";
 import Navbar from "./components/layout/navbar/Navbar";
-import { ProductsList } from "./components/pages/productsList/ProductsList";
+import ProductsListContainer from "./components/pages/productsList/ProductsListContainer";
 
 const App = () => {
+  const [montado, setMontado] = useState(false);
+  const [nombre, setNombre] = useState("pepito");
+
   return (
     <div>
       <Navbar />
-      <ProductsList />
+
+      {montado && <ProductsListContainer nombre={nombre} />}
+
+      <button onClick={() => setMontado(!montado)}>Montar componente</button>
+
+      <button onClick={() => setNombre("maria")}>cambiar nombre</button>
     </div>
   );
 };
