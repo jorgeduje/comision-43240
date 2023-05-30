@@ -1,3 +1,4 @@
+import { Badge } from "@mui/material";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
 const Navbar = () => {
@@ -14,7 +15,9 @@ const Navbar = () => {
         <li>Deportivas</li>
       </ul>
 
-      <BsFillCartCheckFill color="steelblue" size="20px" />
+      <Badge badgeContent={4} color="primary">
+        <BsFillCartCheckFill color="steelblue" size="20px" />
+      </Badge>
     </div>
   );
 };
