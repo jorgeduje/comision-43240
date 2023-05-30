@@ -1,8 +1,13 @@
-const ProductsListPresentacional = () => {
+import ProductCard from "../../common/productCard/ProductCard";
+import "./ProductsList.css"
+const ProductsListPresentacional = ({ items }) => {
+  // [{}, {}, {}]
   return (
-    <>
-      <h1>Aca van los productos</h1>
-    </>
+    <div className="cards-container">
+      {items.map((elemento) => {
+        return <ProductCard key={elemento.id} elemento={elemento} />;
+      })}
+    </div>
   );
 };
 
