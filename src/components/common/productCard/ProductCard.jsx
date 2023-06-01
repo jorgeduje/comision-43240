@@ -17,7 +17,7 @@ const ProductCard = ({ elemento }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained">Agregar al carrito</Button>
+        <Button variant="contained">Ver detalle</Button>
        
       </CardActions>
     </Card>
