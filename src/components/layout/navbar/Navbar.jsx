@@ -1,22 +1,26 @@
 import { Badge } from "@mui/material";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import styles from "./Navbar.module.css";
-const Navbar = ({ children }) => {
+
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
   return (
     <>
       <div className={styles.containerNavbar}>
-        <h5>Comision 43240</h5>
+        <Link to="/">Comision-43240</Link>
         <ul className={styles.categories}>
-          <li>Todas</li>
-          <li>Urbanas</li>
-          <li>Deportivas</li>
+          <Link to="/">Limpiar filtros</Link>
+          <Link to="/category/urbanas">Urbanas</Link>
+          <Link to="/category/deportivas">Deportivas</Link>
         </ul>
 
-        <Badge badgeContent={4}>
-          <BsFillCartCheckFill size="30px" />
-        </Badge>
+        <Link to="/carrito">
+          <Badge badgeContent={4} color="primary">
+            <BsFillCartCheckFill size="30px" />
+          </Badge>
+        </Link>
       </div>
-      {children}
     </>
   );
 };
