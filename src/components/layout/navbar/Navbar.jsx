@@ -1,23 +1,19 @@
 import { Badge } from "@mui/material";
 import { BsFillCartCheckFill } from "react-icons/bs";
-
+import styles from "./Navbar.module.css";
 const Navbar = ({ children }) => {
   return (
     <>
-      <div>
-        <img
-          src="https://res.cloudinary.com/dnqfh2chg/image/upload/v1684852019/images_rysozf.jpg"
-          alt=""
-          style={{ width: "100px" }}
-        />
-        <ul>
+      <div className={styles.containerNavbar}>
+        <h5>Comision 43240</h5>
+        <ul className={styles.categories}>
           <li>Todas</li>
           <li>Urbanas</li>
           <li>Deportivas</li>
         </ul>
 
-        <Badge badgeContent={4} color="primary">
-          <BsFillCartCheckFill color="steelblue" size="20px" />
+        <Badge badgeContent={4}>
+          <BsFillCartCheckFill size="30px" />
         </Badge>
       </div>
       {children}

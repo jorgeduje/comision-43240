@@ -1,0 +1,35 @@
+.containerNavbar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: steelblue;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  li{
+    list-style: none;
+  }
+  
+  .categories{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .categories a {
+    background-color: beige;
+    padding: 10px 20px;
+    color: #7F669D;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+  }
+  

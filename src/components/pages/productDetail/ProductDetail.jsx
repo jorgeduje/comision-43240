@@ -1,4 +1,4 @@
-import { ItemCount } from "../../ItemCount";
+import { ItemCount } from "../../common/ItemCount";
 
 const ProductDetail = ({ productSelected }) => {
   const onAdd = (cantidad) => {
@@ -18,7 +18,9 @@ const ProductDetail = ({ productSelected }) => {
       </div>
       {productSelected.stock > 0 ? (
         <ItemCount stock={productSelected.stock} initial={1} onAdd={onAdd} />
-      ) : <h3>No hay stock</h3>}
+      ) : (
+        <h3>No hay stock</h3>
+      )}
     </>
   );
 };
