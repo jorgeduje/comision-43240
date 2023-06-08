@@ -12,7 +12,7 @@ const Navbar = ({ children }) => {
           <li>Deportivas</li>
         </ul>
 
-        <Badge badgeContent={4}>
+        <Badge badgeContent={4} color="primary">
           <BsFillCartCheckFill size="30px" />
         </Badge>
       </div>
