@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import ProductsListPresentacional from "./ProductsListPresentacional";
 import { products } from "../../../productsMock";
+import { useParams } from "react-router";
 
 const ProductsListContainer = () => {
   const [items, setItems] = useState([]);
 
+  const { categoryName } = useParams();
+
   useEffect(() => {
-    const tarea = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 1000);
-      // reject( "la promesa salio mal ")
+
+    let productosFiltrados = products.filter(
+      (product) => product.category === categoryName
+    );
+
+    const tarea = new Promise((resolve) => {
+      resolve(categoryName ? productosFiltrados : products);
     });
 
     tarea
@@ -19,18 +24,7 @@ const ProductsListContainer = () => {
         console.log(rechazo);
       });
 
-    // ASYNC - AWAIT
-    // const getData = async () => {
-    //   try {
-    //     let res = await tarea;
-    //     setFrase(res);
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // };
-
-    // getData();
-  }, []);
+  }, [categoryName]);
 
   return <ProductsListPresentacional items={items} />;
 };

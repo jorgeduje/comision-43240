@@ -1,7 +1,9 @@
 import { ItemCount } from "../../common/ItemCount";
 
 const ProductDetail = ({ productSelected }) => {
+
   const onAdd = (cantidad) => {
+    
     let data = {
       ...productSelected,
       quantity: cantidad,
