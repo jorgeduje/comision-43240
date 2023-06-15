@@ -3,6 +3,7 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import styles from "./Navbar.module.css";
 
 import { Link } from "react-router-dom";
+import { menuNavigate } from "../../../routes/menuNavigate";
 
 const Navbar = () => {
   return (
@@ -10,9 +11,11 @@ const Navbar = () => {
       <div className={styles.containerNavbar}>
         <Link to="/">Comision-43240</Link>
         <ul className={styles.categories}>
-          <Link to="/">Limpiar filtros</Link>
-          <Link to="/category/urbanas">Urbanas</Link>
-          <Link to="/category/deportivas">Deportivas</Link>
+          {menuNavigate.map(({ id, path, title }) => (
+            <Link key={id} to={path}>
+              {title}
+            </Link>
+          ))}
         </ul>
 
         <Link to="/carrito">
