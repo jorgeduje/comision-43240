@@ -1,23 +1,19 @@
-import { useEffect } from "react"
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
-import { useNavigate } from "react-router-dom"
+
 
 const CartContainer = () => {
 
-  const navigate = useNavigate()
-
-  const realizarCompra = ()=>{
-    console.log("se compraron los productos")
-    // navegar
-    navigate("/")
-  }
+  const {cart} = useContext(CartContext)
+  console.log(cart)
+ 
 
   return (
     <div>
-        <h1>Carritoooo</h1>
-        <button onClick={realizarCompra}>Comprar</button>
+      <h1>Carritoooo</h1>
     </div>
-  )
-}
+  );
+};
 
-export default CartContainer
+export default CartContainer;
