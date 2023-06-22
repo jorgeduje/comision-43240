@@ -4,11 +4,6 @@ import { products } from "../../../productsMock";
 import { useParams } from "react-router";
 import { ScaleLoader } from "react-spinners";
 
-const objetoLoader = {
-  display: "block",
-  margin: "0 auto",
-  border: "2px solid red",
-};
 
 const ProductsListContainer = () => {
   const [items, setItems] = useState([]);
@@ -24,7 +19,7 @@ const ProductsListContainer = () => {
     const tarea = new Promise((resolve) => {
       setTimeout(() => {
         resolve(categoryName ? productosFiltrados : products);
-      }, 500);
+      }, 1000);
     });
 
     tarea
@@ -36,8 +31,16 @@ const ProductsListContainer = () => {
 
   if (items.length === 0) {
     return (
-      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        <ScaleLoader cssOverride={objetoLoader} color="#36d7b7" />
+      <div
+        style={{
+          width: "100%",
+          height: "90vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <ScaleLoader color="steelblue" width={40} height={111}  />
       </div>
     );
   }

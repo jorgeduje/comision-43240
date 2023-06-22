@@ -1,0 +1,73 @@
+.cart-container{
+    width: 100%;
+    padding: 50px 0;
+    min-height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.container-items{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    border-right: 2px solid #7F669D;
+    padding: 0 40px;
+}
+
+.cart-info{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #7F669D;
+}
+.btn-cart{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-cart > button {
+    width: 200px;
+}
+
+.cart-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    /* border: 1px solid #7F669D; */
+    box-shadow: 0px 2px 5px 0px #7F669D;
+    border-radius: 10px;
+    padding: 0 10px;
+
+}
+
+.cart-item > img{
+    width: 10%;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Aca la tarjeta */
+.cart-item-info{
+    width: 80%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #7F669D;
+    
+    
+}
+
+.cart-item-info > h2{
+    font-family: monospace;
+}
