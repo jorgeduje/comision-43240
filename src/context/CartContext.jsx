@@ -3,9 +3,12 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
+// localStorage.getItem("cart")
+// localStorage.setItem("cart", [])
+
 // creo el componente proveedor del contexto
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState( JSON.parse(localStorage.getItem("cart")) || [] );
 
   const addToCart = (newProduct) => {
     // preguntar si existe
@@ -23,9 +26,11 @@ const CartContextProvider = ({ children }) => {
         }
       })
       setCart(newArray)
-
+      localStorage.setItem( "cart", JSON.stringify( newArray ) )
     } else {
       setCart([...cart, newProduct]);
+      localStorage.setItem( "cart", JSON.stringify( [...cart, newProduct] ) )
+
     }
   };
 
@@ -37,6 +42,7 @@ const CartContextProvider = ({ children }) => {
 
   const clearCart = ()=>{
     setCart( [] )
+    localStorage.removeItem("cart")
   }
 
   
@@ -44,11 +50,28 @@ const CartContextProvider = ({ children }) => {
   const removeById = ( id )=>{
     let newArray = cart.filter( (product)=> product.id !== id )
     setCart(newArray)
+    localStorage.setItem( "cart", JSON.stringify(newArray) )
   }
   const getTotalQuantityById = (id)=>{
       let producto = cart.find( prod => prod.id === +id)
       console.log(producto?.quantity)
       return producto?.quantity
+  }
+
+  const getTotalItems = ( )=>{
+
+    let total = cart.reduce( (acc, elemento)=> {
+      return acc + elemento.quantity
+    }, 0)
+    return total
+  }
+
+  const getTotalPrice = ()=>{
+
+    let total = cart.reduce( (acc, elemento)=>{
+      return acc + ( elemento.quantity * elemento.price)
+    }, 0 )
+    return total
   }
 
 
@@ -58,7 +81,9 @@ const CartContextProvider = ({ children }) => {
     addToCart,
     clearCart,
     removeById,
-    getTotalQuantityById
+    getTotalQuantityById,
+    getTotalItems,
+    getTotalPrice
   };
 
   return <CartContext.Provider value={data}> {children} </CartContext.Provider>;
