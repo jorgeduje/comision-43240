@@ -1,32 +1,39 @@
 import { useEffect, useState } from "react";
 import ProductsListPresentacional from "./ProductsListPresentacional";
-import { products } from "../../../productsMock";
+
 import { useParams } from "react-router";
 import { ScaleLoader } from "react-spinners";
-
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ProductsListContainer = () => {
   const [items, setItems] = useState([]);
-
   const { categoryName } = useParams();
-  console.log(items.length);
 
   useEffect(() => {
-    let productosFiltrados = products.filter(
-      (product) => product.category === categoryName
-    );
+    let itemCollection = collection(db, "products");
+    let consulta;
 
-    const tarea = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(categoryName ? productosFiltrados : products);
-      }, 1000);
-    });
+    if (categoryName) {
+      // los filtrados
+      consulta = query(itemCollection, where("category", "==", categoryName))
+    } else {
+      // todos
+      consulta = itemCollection
+    }
 
-    tarea
-      .then((respuesta) => setItems(respuesta))
-      .catch((rechazo) => {
-        console.log(rechazo);
-      });
+    getDocs(consulta)
+      .then((res) => {
+        let products = res.docs.map((elemento) => {
+          return {
+            ...elemento.data(),
+            id: elemento.id,
+          };
+        });
+        setItems(products);
+      })
+      .catch((err) => console.log(err));
+
   }, [categoryName]);
 
   if (items.length === 0) {
@@ -37,10 +44,10 @@ const ProductsListContainer = () => {
           height: "90vh",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
-        <ScaleLoader color="steelblue" width={40} height={111}  />
+        <ScaleLoader color="steelblue" width={40} height={111} />
       </div>
     );
   }

@@ -33,6 +33,9 @@ const Cart = ({ cart, limpiar, removeById, total }) => {
               <Button onClick={limpiar} variant="contained">
                 Vaciar carrito
               </Button>
+              <Link to="/checkout">
+                <Button variant="contained">Finalizar compra</Button>
+              </Link>
             </div>
           ) : (
             <Link to="/">
