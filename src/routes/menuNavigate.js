@@ -3,7 +3,7 @@ export const menuNavigate = [
     {
         id: "home",
         path: "/",
-        title: "Limpiar filtros"
+        title: "Todas"
     },
     {
         id: "urbanas",
