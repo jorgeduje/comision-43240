@@ -37,6 +37,7 @@ const ProductDetail = ({ productSelected, cantidad, onAdd }) => {
         <h2>No hay stock</h2>
       )}
 
+        
       
     </div>
   );
